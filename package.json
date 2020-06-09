@@ -1,7 +1,7 @@
 {
   "name": "honyaku",
   "version": "1.0.0",
-  "description": "Honyaku est une platforme vour permettant de traduire pour le moment les format JSON i18n dans une langue donnée. Très pratique pour les application mobile",
+  "description": "Honyaku est une platforme vous permettant de traduire pour le moment les formats JSON i18n dans une langue donnée. Très pratique pour les applications mobile",
   "author": "lulmairine",
   "private": true,
   "scripts": {
