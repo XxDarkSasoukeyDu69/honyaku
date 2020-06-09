@@ -21,7 +21,9 @@
     "node-sass": "^4.14.1",
     "nuxt": "^2.0.0",
     "sass-loader": "^8.0.2",
+    "vue-analytics": "^5.22.1",
     "vue-flag-icon": "^1.0.6",
+    "vue-gtag": "^1.6.2",
     "vuex-persist": "^2.2.0"
   },
   "devDependencies": {}

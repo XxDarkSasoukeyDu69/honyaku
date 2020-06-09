@@ -113,6 +113,37 @@
         </b-row>
       </div>
     </section>
+    <section class="container vh-100 d-flex align-items-center" id="contact">
+      <div class="w-100">
+        <l-typography class="text-center" h2 medium >Available only for this format</l-typography>
+        <div class="d-flex justify-content-around mt-5">
+          <l-fab back-color="#176286" size="60">Json</l-fab>
+        </div>
+      </div>
+    </section>
+    <section class="skewWrapper">
+      <div class="skewY" style="background: linear-gradient(87deg, #172b4d 0, #1a174d 100%)"></div>
+      <div class="container">
+        <b-row class="justify-content-center">
+          <b-col lg="8" style="position: relative">
+            <div style="background: #f4f4f4; border-radius: 10px" class="pt-5 pb-5">
+              <div class="mr-5 ml-5">
+                <l-typography h2 value="Contact" class="mb-4" medium/>
+                <l-typography h5 medium>N’hésitez pas à me contacter pour toutes questions sur la plateforme.</l-typography>
+                <form @submit="submitFormContact">
+                  <l-input v-model="form.pseudo" placeholder="Pseudo" type="text" class="mt-5"/>
+                  <l-input v-model="form.email" placeholder="Email" type="text"/>
+                  <l-input v-model="form.message" placeholder="Email" textarea/>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <l-button rounded value="Envoyer !" class="mt-5"/>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </b-col>
+        </b-row>
+      </div>
+    </section>
     <section class="container vh-100 d-flex align-items-center mb-5 mt-5 pt-5 pb-5" id="about">
       <div class="w-100">
         <l-typography class="text-center mb-3" h2 medium>Amazing team</l-typography>
@@ -143,37 +174,6 @@
               </l-fab>
             </a>
           </div>
-        </div>
-      </div>
-    </section>
-    <section class="skewWrapper">
-      <div class="skewY" style="background: linear-gradient(87deg, #172b4d 0, #1a174d 100%)"></div>
-      <div class="container">
-        <b-row class="justify-content-center">
-          <b-col lg="8" style="position: relative">
-            <div style="background: #f4f4f4; border-radius: 10px" class="pt-5 pb-5">
-              <div class="mr-5 ml-5">
-                <l-typography h2 value="Contact" class="mb-4" medium/>
-                <l-typography h5 medium>N’hésitez pas à me contacter pour toutes questions sur la plateforme.</l-typography>
-                <form @submit="submitFormContact">
-                  <l-input v-model="form.pseudo" placeholder="Pseudo" type="text" class="mt-5"/>
-                  <l-input v-model="form.email" placeholder="Email" type="text"/>
-                  <l-input v-model="form.message" placeholder="Email" textarea/>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <l-button rounded value="Envoyer !" class="mt-5"/>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </b-col>
-        </b-row>
-      </div>
-    </section>
-    <section class="container vh-100 d-flex align-items-center" id="contact">
-      <div class="w-100">
-        <l-typography class="text-center" h2 medium >Available only for this format</l-typography>
-        <div class="d-flex justify-content-around mt-5">
-          <l-fab back-color="#176286" size="60">Json</l-fab>
         </div>
       </div>
     </section>

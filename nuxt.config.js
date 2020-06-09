@@ -35,6 +35,7 @@ export default {
     '~/plugins/flagIcon',
     '~/plugins/fontawesome.js',
     '~/plugins/globalDirectives.js',
+    '~/plugins/gaTag.js',
     { src: '~/plugins/vuex-persist', mode: 'client' },
   ],
   /*

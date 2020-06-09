@@ -1,8 +1,16 @@
 <template>
   <div>
     <nuxt />
+    <cookie-message />
   </div>
 </template>
+
+<script>
+  import CookieMessage from "./cookieMessage";
+  export default {
+    components: {CookieMessage}
+  }
+</script>
 
 <style>
 html {
@@ -53,3 +61,4 @@ html {
   background-color: #35495e;
 }
 </style>
+
