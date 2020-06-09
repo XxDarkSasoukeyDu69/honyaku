@@ -13,7 +13,7 @@
               <div class="text-center">
                 <l-typography h2 class="text-center mb-4" bold>Déposer votre fichier à traduire</l-typography>
               </div>
-              <l-typography h5 style="text-align: center" class="mt-5 mb-3 mr-5 ml-5" >Nous acceptons seulement les format json i18n.</l-typography>
+              <l-typography h5 style="text-align: center" class="mt-5 mb-3 mr-5 ml-5" >Nous acceptons seulement les formats json i18n.</l-typography>
               <form @submit="submitForm" class="mr-5 ml-5">
                 <l-input type="email" v-model="email" class="upload" placeholder="Email"/>
                 <div class="mb-4 d-flex justify-content-between">
@@ -70,8 +70,8 @@
               </l-fab>
               <div>
                 <l-typography h2 medium color="#ffffff">Two Choice Of Translate</l-typography>
-                <l-typography color="#ffffff">Sur cette platforme, nous avons decider de mettre en place deux mode de traduction
-                  dans le but de garder le principe qu'un autre utilisateur traduise votre fichier ou non.</l-typography>
+                <l-typography color="#ffffff">Sur cette platforme, j'ai decidé de mettre en place deux modes de traduction
+                  dans le but de garder le principe qu'un autre utilisateur traduise votre fichier.</l-typography>
               </div>
             </div>
             <b-card class="mt-5 shadow-lg">
@@ -83,9 +83,9 @@
                   <b-card-title>
                     <l-typography h4 medium color="royalblue">Free translate</l-typography>
                   </b-card-title>
-                  <l-typography semi-light>Nous proposons une traduction de vos fichiers et ce gratuitement sous certaine condition.
-                    Afin de garantir un échange entre utilisateur. La traduction vous est offerte dans le cas où un utilisateur
-                    Traduis votre fichier.
+                  <l-typography semi-light>Nous proposons une traduction de vos fichiers et ce gratuitement sous certaines conditions.
+                    Afin de garantir un échange entre utilisateurs. La traduction vous est offerte dans le cas où un utilisateur
+                    Traduit votre fichier.
                   </l-typography>
                 </div>
               </div>
@@ -99,8 +99,8 @@
                   <b-card-title>
                     <l-typography h4 medium color="#D60000">Payement translate</l-typography>
                   </b-card-title>
-                  <l-typography semi-light>Pour les personnes presser, il est possible de payer un service de traduction automatique.
-                  Vous garentissant une traduction sous les plus breves délaies.</l-typography>
+                  <l-typography semi-light>Pour vous, les personnes presser, il est possible de payer un service de traduction automatique.
+                    Vous garantissant une traduction sous les plus brèves délaies.</l-typography>
                 </div>
               </div>
             </b-card>
@@ -116,7 +116,7 @@
     <section class="container vh-100 d-flex align-items-center mb-5 mt-5 pt-5 pb-5" id="about">
       <div class="w-100">
         <l-typography class="text-center mb-3" h2 medium>Amazing team</l-typography>
-        <l-typography class="text-center" h3 semi-light>Cette platforme à été crée et developpé par une seul personne, moi !</l-typography>
+        <l-typography class="text-center" h3 semi-light>Cette plateforme a été créé et développé par une seule personne, moi !</l-typography>
         <div class="text-center mt-5 pt-5">
           <b-img
             class="shadow-lg mb-4"
@@ -125,7 +125,7 @@
             rounded="circle"
             src="https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/90253805_1586916894791505_4131064914418597888_o.jpg?_nc_cat=103&_nc_sid=85a577&_nc_oc=AQnHAB8kU_c4vxKxKOARyks_8JMPlii4qKKAjZg8_W0YPLxZhcHofTJmvIxc7C78lrDrbFWoB4bYJMBFn-EfXUFC&_nc_ht=scontent-cdt1-1.xx&oh=89be230c30dcb4501a0982662431f1da&oe=5F0228FA"/>
           <l-typography h4 bold>Alexandre Cailler</l-typography>
-          <l-typography h5 semi-light>Developpeur full stack junior</l-typography>
+          <l-typography h5 semi-light>Développeur "presque" full stack junior</l-typography>
           <div class="d-flex justify-content-center mt-3 ">
             <a href="https://www.facebook.com/alexandre.cailler.16">
               <l-fab back-color="#4267b2" size="40">
@@ -154,7 +154,7 @@
             <div style="background: #f4f4f4; border-radius: 10px" class="pt-5 pb-5">
               <div class="mr-5 ml-5">
                 <l-typography h2 value="Contact" class="mb-4" medium/>
-                <l-typography h5 medium>N’hésitez pas à me contacter pour toutes questions sur la platerforme.</l-typography>
+                <l-typography h5 medium>N’hésitez pas à me contacter pour toutes questions sur la plateforme.</l-typography>
                 <form @submit="submitFormContact">
                   <l-input v-model="form.pseudo" placeholder="Pseudo" type="text" class="mt-5"/>
                   <l-input v-model="form.email" placeholder="Email" type="text"/>
