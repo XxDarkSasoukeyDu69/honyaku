@@ -1,11 +1,11 @@
 {
-  "name": "traduction-app",
+  "name": "honyaku",
   "version": "1.0.0",
-  "description": "application de traduction",
+  "description": "Honyaku est une platforme vour permettant de traduire pour le moment les format JSON i18n dans une langue donnée. Très pratique pour les application mobile",
   "author": "lulmairine",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "NODE_ENV=dev nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
