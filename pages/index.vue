@@ -100,7 +100,7 @@
                     <l-typography h4 medium color="#D60000">Payement translate</l-typography>
                   </b-card-title>
                   <l-typography semi-light>Pour vous, les personnes presser, il est possible de payer un service de traduction automatique.
-                    Vous garantissant une traduction sous les plus brèves délaies.</l-typography>
+                    Vous garantissant une traduction sous les plus brefs délaies.</l-typography>
                 </div>
               </div>
             </b-card>
@@ -116,7 +116,7 @@
     <section class="container vh-100 d-flex align-items-center mb-5 mt-5 pt-5 pb-5" id="about">
       <div class="w-100">
         <l-typography class="text-center mb-3" h2 medium>Amazing team</l-typography>
-        <l-typography class="text-center" h3 semi-light>Cette plateforme a été créé et développé par une seule personne, moi !</l-typography>
+        <l-typography class="text-center" h3 semi-light>Cette plateforme a été créée et développé par une seule personne, moi !</l-typography>
         <div class="text-center mt-5 pt-5">
           <b-img
             class="shadow-lg mb-4"
