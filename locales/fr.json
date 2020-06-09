@@ -1,0 +1,347 @@
+{
+  "fields_isRequired": "Le champ est requis",
+  "pages-auth-login": {
+    "title": "Se connecter",
+    "libelle_email": "Email",
+    "libelle_password": "Mot de passe",
+    "error_email": "L'email est requis",
+    "error_email_incorect": "L'email est incorrect",
+    "error_password": "Mot de passe requis",
+    "error_password_incorect": "Le mot de passe est incorrect",
+    "btn_validate": "Confirmer",
+    "forgot_link": "Mot de passe oublié",
+    "register_link": "Créer un compte",
+    "image_login": "Image de connexion",
+    "image_resgister": "Image d'inscription"
+  },
+  "pages-auth-subscribe": {
+    "title": "S'inscrire",
+    "label_firstname": "Prénom",
+    "label_lastname": "Nom de famille",
+    "label_email": "E-mail",
+    "label_password": "Mot de passe",
+    "label_confirmation_password": "Confirmer votre mot de passe",
+    "password_authenticity": "Les mots de passe ne sont pas identiques",
+    "error_firstname": "Prénom requis",
+    "error_lastname": "Nom de famille requis",
+    "error_email": "E-mail requis",
+    "error_password_incorect": "Le mot de passe est requis",
+    "error_email_incorect": "L'email n'est pas valide",
+    "error_password": "Mot de passe requis",
+    "btn_validate": "Je m'inscris",
+    "connect_link": "Vous avez déjà un compte ? Connectez-vous ici !",
+    "conditions_msg": "lorem ipsum...",
+    "terms_msg": "lorem ipsum...",
+    "login_link": "Déjà un compte ?"
+  },
+  "pages-auth-index": {
+    "text_back_home": "Retour à la page d'accueil"
+  },
+  "pages-profil-index": {
+    "menu_tab_travel": "Mes voyages",
+    "menu_tab_world": "Mon monde",
+    "menu_tab_request": "Requêtes",
+    "menu_tab_parameters": "Paramètres",
+    "rating": "Votre score",
+    "ressource_not_found": "Ressource non trouvée",
+    "profil-index.previous_page": "Aller à la page précédente",
+    "menu_tab_world_link": "Mon monde"
+  },
+  "pages-travel-create-index-address-index": {
+    "text_address": "Qu'elle(s) étape(s) recommandez vous à",
+    "place": "Votre lieu :",
+    "button_next": "Suivant",
+    "button_prev": "retour",
+    "buttun_address": "Ajouter l'étape",
+    "description": "Description",
+    "address": "Adresse",
+    "add_error": "Ajoute étape",
+    "addresses_add": "Adresses ajoutées"
+  },
+  "pages-travel-create-index-city": {
+    "text_add_city": "Ajouter une ville",
+    "label_upload_picture": "Importer une image",
+    "button_next": "Suivant",
+    "information": "Informations",
+    "number_of_cities_add": "ajouter une ville",
+    "div_travel_information": "Enregistrez votre voyage une fois que vous avez fini d'ajouter tous vos points d'acheminement.",
+    "button_save": "Sauvegarder",
+    "city": "Une ville",
+    "cities_add": "Ajouter votre ville",
+    "add_error": "Un problème est survenu, veuillez resaisir le nom de votre ville"
+  },
+  "pages-contact": {
+    "partner_with_us": "Vous souhaitez devenir un partenaire de notre organisation ? Remplissez le formulaire ci-dessous",
+    "contact_us": "Nous contacter",
+    "send": "Envoyer le formulaire",
+    "error": "Une erreur s'est produite, veuillez réessayer plus tard",
+    "firstname": "Prénom",
+    "lastname": "Nom de famille",
+    "company": "Société",
+    "email": "Email",
+    "message": "Votre message"
+  },
+  "pages-travel-create-index-country": {
+    "text_information_travel": "Nous vous aiderons à planifier votre voyage",
+    "step_one": "Première étape",
+    "paragrah_information": "Dans quel pays avez-vous voyagé ?",
+    "label_country": "Votre pays",
+    "button_next": "Suivant",
+    "image_travel": "Image de voyage",
+    "image_information": "Image représentant l'information",
+    "image_profil": "Image représentant l'image de profil par défaut"
+  },
+  "pages-travel-create-index-information": {
+    "text_information_travel": "Rassemblez les premières informations sur votre voyage",
+    "import_picture": "Importer une image",
+    "date_departure": "La date de départ",
+    "date_arrival": "La date de fin",
+    "button_next": "Suivant",
+    "title": "Titre *",
+    "description": "Description",
+    "date_picker_locale": "fr-FR",
+    "travel_init": "Effacer le voyage"
+  },
+  "pages-user-index": {
+    "ratting": "Score",
+    "reesource_not_found": "Ressource non trouvée",
+    "menu_tabs_travel": "Voyages",
+    "menu_tabs_world_link": "Monde",
+    "image_profil": "Image du profil"
+  },
+  "pages-home": {
+    "input_srch_addr_placeholder": "Adresse",
+    "input_srch_friend_placeholder": "Amis",
+    "link_our_world": "Votre monde",
+    "top_title_content": "Le top 10 des meilleurs voyages internationaux !",
+    "world_picture": "Image du monde",
+    "pres_txt": "Avec Todoworld, découvrez comment réaliser et organiser le voyage de vos rêves en s'inspirant de celui d'autres voyageurs ..."
+  },
+
+  "components-cropper-cropper": {
+    "edit_picture": "Modifier la photo",
+    "import_picture": "Importer une image",
+    "validate": "Confirmer",
+    "image_cropped_image": "Image rognée"
+  },
+  "components-drawer-drawer": {
+    "friends": "Aucun ami(e) trouvé"
+  },
+  "component-error-error": {
+    "error_occured": "Nous sommes désolés, une erreur s'est produite",
+    "continue": "Continuer",
+    "restart": "Recommencer"
+  },
+  "component-form-upload-file": {
+    "import_image": "Importer une image"
+  },
+  "component-list-event": {
+    "add_friends": "Vous à fait une demande d'ami !",
+    "accept_request_friend": "A accepté votre demande d'ami !",
+    "publish_travel": "A publié un nouveau voyage !"
+  },
+  "component-list-search-travel": {
+    "button_see": "Consulter",
+    "title_trip": "Rechercher un voyage, une ville ou une adresse"
+  },
+  "component-list-search-user": {
+    "search_user": "Rechercher un ami",
+    "see": "Consulter"
+  },
+  "component-list-travel-list": {
+    "date": "Date"
+  },
+  "component-list-city-list": {
+    "tip": "Ajouter une adresse",
+    "cities_registered": "Aucune adresse n'est enregistrée pour le moment"
+  },
+  "component-list-address-list": {
+    "cities_registered": "Aucune ville n'est enregistrée pour le moment"
+  },
+  "component-navbar-main": {
+    "href_label_world": "Mon monde",
+    "href_label_travel": "Mes voyages",
+    "href_label_profil": "Mon profil",
+    "href_label_disconect": "Déconnexion",
+    "href_label_login": "Se connecter",
+    "search": "Rechercher ..."
+  },
+  "component-pages-main-navbar-event": {
+    "label_event": "Notifications",
+    "title_event": "Notifications : "
+  },
+  "component-pages-main-navbar-search": {
+    "lastname_firstname": "Le prénom ou le nom de famille ...",
+    "search_by": "Recherche par pays, titre de voyage ...",
+    "users": "Voyageur",
+    "address": "Adresse"
+  },
+  "component-pages-create-travel": {
+    "addresses" : "Liste des adresses",
+    "cities": "Liste des villes",
+    "close": "Fermer"
+  },
+  "component-pages-profile-about": {
+    "href_label_travel": "Voyage",
+    "friend_request": "Aucune demande d'ami n'a été reçue",
+    "title": "Demande d'ami en attente"
+  },
+  "component-pages-profile-disconect": {
+    "Disconect": "Déconnexion",
+    "text_disconect": "Êtes-vous sûr de vouloir vous déconnecter de Todoworld ?",
+    "text_confirm_no": "Non",
+    "text_confirm_yes": "Oui"
+  },
+  "component-pages-profile-password-update": {
+    "update_password": "Changement de mot de passe",
+    "subtitle": "Remplissez les informations suivantes pour changer votre mot de passe",
+    "label_current_password": "Mot de passe actuel",
+    "label_new_password": "Nouveau mot de passe",
+    "label_confirm_new_password": "Confirmer le nouveau mot de passe",
+    "cancel": "Annuler",
+    "validate": "Confirmer",
+    "close_button": "Fermer",
+    "password_authenticity": "Les mots de passe ne sont pas identiques",
+    "error_password_incorect": "Le mot de passe est incorrect"
+  },
+  "component-pages-profile-report": {
+    "reportLibelle": "Signaler un utilisateur",
+    "card_title": "Pour quelle raison voulez-vous dénoncer cette personne ?",
+    "btn_language": "Langage abusif",
+    "btn_travel": "Un parcours peu éthique",
+    "btn_comment": "Commentaire irrespectueux",
+    "btn_harassment": "Harcèlement",
+    "btn_cancel": "Annuler",
+    "btn_confirm": "Confirmer"
+  },
+  "component-pages-profile-error": {
+    "sendReport": "Un problème ?",
+    "cancel": "Annuler",
+    "title_error": "Titre de l'erreur",
+    "description": "Description",
+    "btn_close": "Fermer",
+    "btn_send": "Envoyer",
+    "report_problem": "Signaler un problème",
+    "Invalid_character": "Longueur de caractères non valable, obligatoire"
+  },
+  "component-pages-profile-parameters": {
+    "field_first_name": "Prénom",
+    "last_name": "Nom de famille",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "disconnect": "Deconnexion",
+    "email_incorrect": "E-mail incorrect ",
+    "valid_email": "Le courriel doit être valide",
+    "signal_error": "Signaler une erreur",
+    "button_signal": "signaler",
+    "label": "Mes informations personnelles",
+    "label_picture" : "Photo de profil/couverture",
+    "signal_problem": "Gestion problèmes"
+  },
+  "component-page-profile-travel": {
+    "sectionTitleTravel": "Vos voyages",
+    "none_travel": "Aucun voyage",
+    "href_label_travel": "Voyage"
+  },
+  "component-page-subscribe-conditions": {
+    "terms": "Termes",
+    "conditions": "Conditions",
+    "content_condition": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc.",
+    "content_terms": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc.",
+    "rules": "Vous devez accepter pour continuer",
+    "condition_1": "J'accepte",
+    "condition_2": "et les"
+  },
+  "component-page-world-info": {
+    "date": "Date",
+    "previous_item": "Point précédent",
+    "next_item": "Point suivant",
+    "click_on_icon": "Cliquez sur une icône : ",
+    "travel_picture": "Photo de voyage",
+    "add_travel_btn": "Ajouter un voyage"
+  },
+  "component-pages-world-button": {
+    "isFriend": "contacter"
+  },
+  "component-parameters-fields": {
+    "button_cancel": "Annuler",
+    "button_Validate": "Valider",
+    "button_edit": "Mettre à jour",
+    "clik_oncity": "Cliquer sur un pays"
+  },
+  "page-my-travel": {
+    "button_add_travel": "Nouveau voyage"
+  },
+  "pages-about-index": {
+    "who-are-we": "Qui sommes nous ?",
+    "presentation": "Todoworld a été pensé par trois étudiants qui aiment voyager. Imaginé par Antoine Burgaudeau, il était frustré de ne pas pouvoir partager facilement avec ses amis tous ses voyages. Quand l'on revient de voyage on doit toujours passer par mille explications. Avec TodoWorld, expliquer, échanger, se remémorer sera extrêmement simple ! Le but est aussi de pouvoir conseiller ses proches sur les adresses à faire ou non. C'est ainsi que todoworld est né.",
+    "alexandre-presentation": "Elève en 3ème année dans une école d'informatique. Passionné par le développement, TodoWorld est pour moi un réel sujet d'étude dans lequel j'utilise différentes technologies du web qui s'étendent de la conception au déploiement continu.",
+    "camille-presentation": "Passionné par l'informatique et le tourisme, j'ai rejoint l'équipe afin d'apporter mes connaissances et développer une plateforme de partage de voyage simple, innovant et ergonomique. TodoWorld est selon moi le site de partage de voyage qui sera contempler les voyageurs d'aujourd'hui et demain.",
+    "antoine-presentation": "Passionné de Voyage et d'Informatique TodoWorld est la fusion de mes passions. Le but pour moi est de réunir les expériences de chacun et de me fier aux conseils des personnes qui me sont chères. Je manage l'équipe et développe main dans la main avec Alexandre. Je suis très heureux de travailler en équipe avec deux personnes d'exception. Todoworld est un défi pour moi et je compte bien le relever !"
+  },
+  "components-pages-landingPage-landingNotConnect": {
+    "join-us": "Rejoinez-nous !",
+    "slogan": "Voyager pour partager",
+    "sub-slogan": "Le réseau social des Voyageurs !",
+    "how-its-work": "Comment cela fonctionne ?",
+    "its-work": "Poster, visiter, créer un voyage.",
+    "tips-1": "Poster un voyage",
+    "soluce-1": "Sur notre plateforme vous allez pouvoir publier très simplement les voyages que vous avez vécus.",
+    "tips-2": "Vous cherchez des idées, des conseils ?",
+    "soluce-2": "Venez consulter les voyages des autres globe-trotters sur notre plateforme, vous n'aurez plus jamais de mal à préparer les vacances de vos rêves.",
+    "tips-3": "Créer un voyage",
+    "soluce-3": "Grâce à TodoWorld, partagez vos destinations favorites. Il suffit simplement d'ajouter les villes de votre parcours et leurs adresses, et le tour est jouer !"
+  },
+  "components-pages-landingPage-landingIsConnect": {
+    "and-now": "Maintenant que vous nous avez rejoints, tous les voyageurs attendent avec impatience vos expériences ! Commencez dès maintenant à partager ou à chercher de nombreux conseils auprès de vos amis voyageurs.",
+    "add-travel": "Ajouter un voyage",
+    "search-tips": "Trouver une destination",
+    "world": "Mon monde"
+  },
+  "pages-cookie-index": {
+    "title": "Politique de confidentialité",
+    "sub-titre": "Découvrez comment nous utilisons vos données personnelles",
+    "tips": "Il est nécessaire de lire attentivement les modalités d'utilisation du site avant de le parcourir. En vous enregistrant sur nos services vous acceptez sans réserve les modalités.",
+    "who-are-we": "Qui sommes nous ?",
+    "who-are-we-body": "L'adresse de notre site web est : https://todoworld.fr.",
+    "media": "Médias",
+    "media-body": "Si vous faites partie de nos membres et que vous sauvegardez des images sur notre plateforme, nous vous conseillons d'éviter de sauvegarder des images contenant des données de coordonnées GPS. Les données de géolocalisation pourraient être récupérées par d'autres utilisateurs à partir de ces images.",
+    "cookie": "Cookies",
+    "sub-title": "Vous voulez en savoir plus sur notre politique ?",
+    "cookie-body": "Le cookie est une suite d’informations, généralement de petite taille et identifié par un nom, qui peut-être transmis à votre navigateur par un site web sur lequel vous vous connectez. Votre navigateur web le conservera pendant une durée limité, et le renverra au serveur web chaque fois que vous vous y reconnecterez. Vous acceptez l'utilisation des cookies dès lors que vous acceptez leurs usages en bas de l'écran ou bien en vous inscrivant sur notre site. Nous utilisons les cookies pour relever le trafic sur notre plateforme.",
+    "statistic": "Statistiques et mesures d'audience",
+    "statistic-body": "Nous utilisons google annalytics pour enregistrer le trafic sur notre plateforme, dans le but de recueillir des statistiques globales sur nos utilisateurs, dans l'unique cas où vous avez accepté l'utilisation des cookies sur notre plateforme."
+  },
+  "layouts-default": {
+    "version": "Beta - 0.9.0"
+  },
+  "layouts-error": {
+    "page_not_found": "404 Page non trouvée",
+    "profile": "Mon profil",
+    "add_travel": "ajouter un voyage",
+    "connection": "connexion",
+    "error_has_occured": "Une erreur est survenue"
+  },
+  "layouts-footer": {
+    "share_skill": "Partagez vos nouvelles expériences dès maintenant",
+    "create_travel": "faire un voyage",
+    "register": "S'inscrire maintenant",
+    "sharing": "Commencez à partager",
+    "join_us": "3, 2, 1, décolage ...",
+    "join_us_now": "Envolez vous",
+    "home": "Accueil",
+    "contact_us": "Nous contacter",
+    "About_us": "À propos de notre équipe",
+    "Privacy_policy": "Politique de confidentialité",
+    "copyright": "copyright 2020 | todoworld"
+  },
+  "components-cookieMessage": {
+    "cookie_message": "En continuant à naviguer sur ce site, vous acceptez l'utilisation de cookies afin de vous offrir une meilleure expérience sur notre site.",
+    "accept": "accepter",
+    "find_out_more": "en savoir plus"
+  },
+  "components-navbar-navDisconnect": {
+    "return": "retour",
+    "join_us": "Envolez vous"
+  }
+}
