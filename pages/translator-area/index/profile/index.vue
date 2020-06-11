@@ -3,29 +3,27 @@
     <l-typography class="pt-5" h2 bold>Welcome in your profile area, {{user.pseudo}}</l-typography>
     <b-row class="pt-5 pb-5 h-100">
       <b-col :cols="12" lg="4" class="col-wrapper-profile">
-        <l-card class="d-flex align-items-center justify-content-center">
-          <div class="text-center">
-              <l-typography h0 bolder :value="effectedCount" class="text-center"/>
-              <l-typography h5 bold value="Traduction éffectué" class="text-center pt-5" />
-              <l-button style="margin: auto" class="mt-3" @click="$router.push('/translator-area/profile/effected-translate')" rounded>Voir</l-button>
-          </div>
-        </l-card>
+        <l-card-profile
+          :count="effectedCount"
+          label="Traduction éffectué"
+          redirect-link="/translator-area/profile/effected-translate"
+          redirect-label="Voir"
+        />
+      </b-col>
+      <b-col :cols="12" lg="4" class="col-wrapper-profile">
+        <l-card-profile
+          :count="runningCount"
+          label="Traduction en cours"
+          redirect-link="/translator-area/profile/running-translate"
+          redirect-label="Voir"
+        />
       </b-col>
       <b-col :cols="12" lg="4" class="col-wrapper-profile">
         <l-card class="d-flex align-items-center justify-content-center">
-          <div class="text-center">
-            <l-typography h0 bolder :value="runningCount" class="text-center"/>
-            <l-typography h5 bold value="Traduction en cours" class="text-center pt-5" />
-            <l-button style="margin: auto" class="mt-3" @click="$router.push('/translator-area/profile/running-translate')" rounded>Voir</l-button>
-          </div>
-        </l-card>
-      </b-col>
-      <b-col :cols="12" lg="4" class="col-wrapper-profile">
-        <l-card class="d-flex align-items-center justify-content-center">
-          <div class="text-center">
-            <l-typography h0 bolder value="2.5" class="text-center"/>
-            <l-typography h5 bold value="Notation" class="text-center pt-5" />
-          </div>
+          <l-card-profile
+            count="2.5"
+            label="Notation"
+          />
         </l-card>
       </b-col>
       <b-col :cols="12" lg="4" class="col-wrapper-profile">
@@ -63,9 +61,10 @@
     import LCardBody from "~/components/base/card-body";
     import LButton from "../../../../components/base/button";
     import file_request from "../../../../services/requests/file_request";
+    import LCardProfile from "../../../../components/profile/card-profile";
     export default {
       name: "index",
-      components: {LButton, LCardBody, LCardHeader, CardFlip, LTypography, LCard},
+      components: {LCardProfile, LButton, LCardBody, LCardHeader, CardFlip, LTypography, LCard},
       data() {
         return {
           user: null,

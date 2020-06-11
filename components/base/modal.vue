@@ -1,63 +1,60 @@
 <template>
-  <div class="modal-p" id="modal-p">
-    <slot/>
-  </div>
+  <SlideYUpTransition :duration="300">
+    <div class="modal-p-wrapper" :class="[{'overlay-dark': overlayDark}]" v-show="value" role="dialog">
+      <div class="modal-p" v-click-outside="closeModal">
+        <div class="p-4">
+          <slot />
+        </div>
+      </div>
+    </div>
+  </SlideYUpTransition>
 </template>
 
 <script>
+
+  import { SlideYUpTransition } from "vue2-transitions";
+  import LCard from "./card";
+  import LButton from "./button";
+
     export default {
-        name: "l-modal",
+      components: {
+        LButton,
+        LCard,
+        SlideYUpTransition
+      },
+      name: "l-modal",
       props: {
-        value : { type: Boolean , required: false, default: false},
+        overlayDark: Boolean,
+        value: Boolean
       },
       methods: {
-        openModal() {
-          document.getElementById('modal-p').style.visibility = 'visible';
-          document.getElementById('modal-p').style.clipPath = 'circle(75%)';
-          document.getElementById('modal-p').style.background =  'linear-gradient(270deg, #172b4d 0%, #1a174d 100%)';
-        },
         closeModal() {
-          document.getElementById('modal-p').style.clipPath = 'circle(0% at 90% 20%)';
-          document.getElementById('modal-p').style.background =  'linear-gradient(270deg, #172b4d 0%, #1a174d 100%)';
-          //document.getElementById('modal-p').style.visibility = 'hidden';
-        },
-      },
-      watch: {
-          value: function (newVal) {
-            if(newVal === true) this.openModal()
-            else this.closeModal()
-          }
+          this.$emit('input', false)
+        }
       }
     }
 </script>
 
 <style lang="scss" scoped>
-  .modal-p {
-    visibility: hidden;
-    padding: 1em;
-    width: 100vW;
-    height: 100vh;
-    clip-path: circle(10% at 90% 20%);
-    transition: all .5s ease-in-out;
-    cursor: pointer;
-    position: absolute;
-    z-index: 122;
-    h1 {
-      color: white;
-      margin: 0;
-    }
 
-    p {
-      color: white;
-      font-size: .8rem;
-    }
-    button {
-      float: right;
-      color: white;
-      font-weight: bold;
-      transition: color .5s;
-      position: relative;
-      margin-right: 4%;
+  .overlay-dark {
+    background: #000000b8;
+  }
+
+  .modal-p-wrapper {
+   // visibility: hidden;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    .modal-p {
+      margin: 15px;
+      border-radius: 10px;
+      width: 800px;
+      background: white;
     }
   }
 </style>

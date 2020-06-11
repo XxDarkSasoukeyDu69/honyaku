@@ -1,6 +1,10 @@
 <template>
-  <button v-if="type" class="button d-flex justify-content-center align-items-center pl-3 pr-3" :class="getClass" :type="type"><b-spinner v-if="loading" variant="light" small class="mr-2"/><slot/>{{ value }}</button>
-  <button v-else class="button d-flex justify-content-center align-items-center pl-3 pr-3" :class="getClass" @click="$emit('click', $event)"><slot/>{{ value }}</button>
+  <button v-if="type" class="button d-flex justify-content-center align-items-center pl-3 pr-3" :class="getClass" :type="type">
+    <b-spinner v-if="loading" variant="light" small class="mr-2"/><slot name="prepend-icon" />{{ value }}<slot/>
+  </button>
+  <button v-else class="button d-flex justify-content-center align-items-center pl-3 pr-3" :class="getClass" @click="$emit('click', $event)">
+    <slot name="prepend-icon" />{{ value }}<slot/>
+  </button>
 </template>
 
 <script>

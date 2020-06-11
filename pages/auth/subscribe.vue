@@ -19,7 +19,10 @@
               </div>
             </form>
           </div>
-          <l-typography class="float-right mt-3" color="#cacaca" to="/auth/login">Always an account</l-typography>
+          <div class="d-flex align-items-center justify-content-between">
+            <l-typography class="float-right mt-3" color="#cacaca" to="/">Retour Accueil</l-typography>
+            <l-typography class="float-right mt-3" color="#cacaca" to="/auth/login">Always an account</l-typography>
+          </div>
         </b-col>
       </b-row>
     </div>
@@ -57,7 +60,10 @@
                 this.$store.commit('updateUser', resp.data)
                 setTimeout( function() { window.location.href = '/translator-area/list-trad' }, 2000)
               })
-          }).catch(e => alert('Une erreur c\'est produite'));
+          }).catch(e => {
+            this.loading = false
+            alert('Une erreur c\'est produite')
+          });
         }
       }
     }

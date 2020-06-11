@@ -1,8 +1,9 @@
 <template>
   <div class="mb-2 input-group">
     <textarea v-if="textarea" :placeholder="placeholder" rows="4" :value="value"
+              :required="required"
               @input="$emit('input',$event.target.value)"/>
-    <input v-else :value="value" :type="type" autocomplete="off" :placeholder="placeholder" @input="$emit('input',$event.target.value)"/>
+    <input v-else :value="value" :type="type" autocomplete="off" :required="required" :placeholder="placeholder" @input="$emit('input',$event.target.value)"/>
   </div>
 </template>
 
@@ -13,6 +14,7 @@
         placeholder: String,
         type: String,
         textarea: Boolean,
+        required: Boolean,
         value : { type: String , required: false, default: ''},
       },
       data() {

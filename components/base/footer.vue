@@ -17,8 +17,7 @@
           </b-col>
           <b-col lg="6">
             <ul class="float-right">
-              <li class="d-inline-block pl-3"><l-typography class="text-muted" to="/contact">Contact</l-typography></li>
-              <li class="d-inline-block pl-3"><l-typography class="text-muted" to="/about">About me</l-typography></li>
+              <li class="d-inline-block pl-3"><l-typography class="text-muted" to="/billing-info">Condition général de vente</l-typography></li>
               <li class="d-inline-block pl-3"><l-typography class="text-muted" to="/cookie">Cookie</l-typography></li>
             </ul>
           </b-col>

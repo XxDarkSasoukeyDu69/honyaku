@@ -72,5 +72,8 @@ export default {
         Authorization: `Bearer ${token}`,
       }
     })
+  },
+  convertFile: file => {
+
   }
 }

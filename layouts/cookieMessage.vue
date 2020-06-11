@@ -14,7 +14,7 @@
     import LTypography from "../components/base/typography";
     import LButton from "../components/base/button";
     export default {
-        name: "cookieMessage",
+      name: "cookieMessage",
       components: {LButton, LTypography},
       data() {
         return {
@@ -53,7 +53,6 @@
   }
   @media (max-width: 1120px) {
     .cookie {
-      flex-direction: column;
       div:nth-child(1) {
         margin-bottom: 20px;
       }

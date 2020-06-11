@@ -1,21 +1,34 @@
 <template>
-    <div class="nav-p nav-top mt-5 mb-5">
-      <div class="container-fluid d-flex justify-content-between">
-        <l-typography class="ml-5" bolder h4>Honyaku</l-typography>
-        <div class="d-flex mr-5">
-          <div v-for="(item, key) in items" :key="key" class="item-menu" :ref="item.link" :class="[{active: item.active}]" @click="navigate(item.link)" >
-            <span>{{ item.libel }}</span>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div>
+    <b-navbar toggleable="lg"  class="nav-top nav-p">
+      <b-navbar-brand to="/"><l-typography class="ml-5" bolder h4>Honyaku</l-typography></b-navbar-brand>
+      <b-navbar-toggle target="nav-collapse" style="border: none">
+        <template v-slot:default="{ expanded }">
+          <burger v-model="expanded"/>
+        </template>
+      </b-navbar-toggle>
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+        </b-navbar-nav>
+        <b-navbar-nav class="ml-auto">
+          <b-nav-item href="#" v-for="(item, key) in items" :key="key">
+            <div class="item-menu" @click="navigate(item.link)" :ref="item.link" :class="[{
+              active: item.active}]">
+              <span>{{ item.libel }}</span>
+            </div>
+          </b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+  </div>
 </template>
 
 <script>
     import LTypography from "./typography";
+    import Burger from "./burger";
     export default {
       name: "l-navbar",
-      components: {LTypography},
+      components: {Burger, LTypography},
       props: {
         items: Array,
         required: true
@@ -26,14 +39,17 @@
           this.$router.push(itemLink)
         },
         setActive(itemLink) {
-          if (!document.getElementsByClassName('nav-p')[0].querySelector('.active')) return;
-          document.getElementsByClassName('nav-p')[0].querySelector('.active').classList.remove('active')
+          if (!document.getElementsByClassName('nav-top')[0].querySelector('.active')) return;
+          document.getElementsByClassName('nav-top')[0].querySelector('.active').classList.remove('active')
           if (!this.$refs[itemLink]) return;
           this.$refs[itemLink][0].classList.add('active')
-        }
+        },
       },
       mounted() {
         this.setActive(this.$route.path)
+        this.$nextTick(() => {
+          window.addEventListener('resize', this.onResize);
+        })
       }
     }
 </script>
@@ -71,5 +87,14 @@
     }
   }
 
+  .burger {
+    display: none;
+  }
+
+  @media (max-width: 749px) {
+    .burger {
+      display: block;
+    }
+  }
 
 </style>

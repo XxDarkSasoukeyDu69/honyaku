@@ -18,7 +18,10 @@
               </div>
             </form>
           </div>
-          <typography class="float-right mt-3" color="#cacaca" to="/auth/subscribe">Here for register</typography>
+          <div class="d-flex align-items-center justify-content-between">
+            <typography class="float-right mt-3" color="#cacaca" to="/">Retour Accueil</typography>
+            <typography class="float-right mt-3" color="#cacaca" to="/auth/subscribe">Here for register</typography>
+          </div>
         </b-col>
       </b-row>
     </div>
@@ -53,7 +56,10 @@
                   localStorage.setItem('GDPR:accepted', true)
                   this.$store.commit('updateUser', resp.data)
                   setTimeout( function() { window.location.href = '/translator-area/list-trad' }, 2000)
-                }).catch(e => alert('Une erreur c\'est produite'));
+                }).catch(e => {
+                  this.loading = false
+                  alert('Une erreur c\'est produite')
+                });
             })
           }
         },mounted() {
