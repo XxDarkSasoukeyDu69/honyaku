@@ -60,6 +60,9 @@
                   this.loading = false
                   alert('Une erreur c\'est produite')
                 });
+            }).catch(e => {
+              this.loading = false
+              alert('Une erreur c\'est produite')
             })
           }
         },mounted() {

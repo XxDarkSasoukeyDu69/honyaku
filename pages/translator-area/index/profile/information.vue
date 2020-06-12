@@ -8,14 +8,14 @@
               <b-form class="pt-3 pb-3" @submit="updateInfo">
                 <b-form-group
                   id="input-group-pseudo"
-                  label="Email address"
+                  label="Pseudo"
                   label-for="input-pseudo"
                 >
-                  <l-input  type="text" v-model="form.pseudo" required id="input-pseudo"/>
+                  <l-input type="text" v-model="form.pseudo" required id="input-pseudo"/>
                 </b-form-group>
                 <b-form-group
                   id="input-group-email"
-                  label="Pseudo"
+                  label="Email"
                   label-for="input-email"
                 >
                   <l-input type="text" v-model="form.email" required id="input-email"/>
@@ -48,7 +48,7 @@
         return {
           form: {
             email: '',
-            pseudo: ''
+            pseudo: this.$refs.test
           }
         }
       },

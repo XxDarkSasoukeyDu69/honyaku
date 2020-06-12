@@ -1,5 +1,14 @@
 <template>
   <div>
+    <l-modal v-model="isConfirmUploadModal" overlay-dark>
+      <div class="d-flex justify-content-between">
+        <l-typography h3 bold>Transfert réussi ! </l-typography>
+        <font-awesome-icon  icon="times" style="font-size: 20px;" @click="modal = false">close</font-awesome-icon>
+      </div>
+      <l-typography>Un mail vous a été envoyer</l-typography>
+      <l-typography>Avec l'identifiant suivant : {{ id_order }}</l-typography>
+      <l-typography>Cet identifiant vous permet de suivre l'état de votre commande, sur le lien suivant: <nuxt-link to="/follow-commande">Lien</nuxt-link></l-typography>
+    </l-modal>
     <l-modal v-model="modalPurchase" overlay-dark>
       <l-typography class="text-center" h3 bold>Quel format vous choisissez ?</l-typography>
       <b-row>
@@ -30,7 +39,7 @@
               </div>
               <l-typography h5 style="text-align: center" class="mt-5 mb-3 mr-5 ml-5" >Nous acceptons seulement les formats json i18n.</l-typography>
               <form @submit="submitForm" class="mr-5 ml-5">
-                <l-input type="email" v-model="email" class="upload" placeholder="Email"/>
+                <l-input type="email" v-model="email" class="upload" placeholder="Email" required />
                 <div class="mb-4 d-flex justify-content-between">
                   <l-select v-model="source" country-flag class="w-100 mr-2" label="From :" :items="countries_code"/>
                   <l-select v-model="target" country-flag class="w-100 ml-2" label="Target :" :items="countries_code"/>
@@ -94,7 +103,9 @@ export default {
       file: null,
       source: 'en',
       target: 'fr',
-      countries_code: []
+      countries_code: [],
+      id_oder: '',
+      isConfirmUploadModal: false
     }
   },
   methods: {
@@ -109,22 +120,27 @@ export default {
     },
     upload() {
       let type = (/[.]/.exec(this.file.name)) ? /[^.]+$/.exec(this.file.name)[0] : undefined
-
       if(type === 'txt') {
         let file = fileConverter.convertTxtToJson(this.file)
       }
-
-      this.loading = true
       let formData = new FormData();
-      formData.append('filemail', this.email)
-      formData.append('filename', this.file.name)
+      formData.append('fileMail', this.email)
+      formData.append('fileName', this.file.name)
       formData.append('file', this.file)
-      formData.append('type', type)
-      /*file_request.postFile(formData).then(r => {
-        alert('transfert réussie')
+      formData.append('targetLang', this.target)
+      formData.append('sourceLang', this.source)
+      formData.append('fileType', type)
+      file_request.postFile(formData).then(r => {
+        this.modalPurchase = false
+        this.modal = false
+        let self = this
+        setTimeout(function () {
+          self.isConfirmUploadModal = true
+        }, 2000)
       }).catch(e => {
+        this.modalPurchase = false
         alert("transfert echoué")
-      })*/
+      })
     },
     getCountriesCode() {
       google_request.getCountriesSupport().then(r =>{

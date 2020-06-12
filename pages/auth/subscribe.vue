@@ -9,7 +9,7 @@
                 <div class="underline"></div>
             </div>
             <l-typography h5 style="text-align: center" class="mt-5 mr-5 ml-5" bold>Welcome to todoworld
-              if you register you accept the <span style="color: royalblue">terms</span> and <span style="color: royalblue">condition</span>.</l-typography>
+              if you register you accept the <nuxt-link to="/cookie" style="color: royalblue">terms</nuxt-link> and <nuxt-link to="/cookie" style="color: royalblue">condition</nuxt-link>.</l-typography>
             <form @submit="submitForm" class="mr-5 ml-5">
               <l-input placeholder="Pseudo" class="mb-4 mt-5" type="text" v-model="formInfo.pseudo"/>
               <l-input placeholder="Email" class="mb-4" type="text" v-model="formInfo.email"/>
@@ -43,7 +43,7 @@
             formInfo: {
               pseudo: '',
               email: '',
-              password: '',
+              password: ''
             }
           }
       },
@@ -51,7 +51,7 @@
         submitForm(e) {
           e.preventDefault()
           this.loading = true
-          user.register(this.formInfo.pseudo, this.formInfo.email, this.formInfo.password).then(r => {
+          user.register(this.formInfo).then(r => {
             localStorage.setItem('access_token', r.data.access_token)
             user.getUserInfo(r.data.access_token)
               .then(resp => {

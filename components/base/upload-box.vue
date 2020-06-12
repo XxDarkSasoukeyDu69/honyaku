@@ -2,7 +2,7 @@
   <div @drop.prevent="addFileByDrop" @dragover.prevent class="upload" style="height: 100px;">
     <input id="upload-input" type="file" hidden accept="*.json" @change="addFile($event)"/>
     <label for="upload-input">
-      <div style="color: #bdbdbd; font-weight: bold" v-if="!filename">
+      <div style="color: #bdbdbd; font-weight: bold" class="text-center" v-if="!filename">
         Drag a file here or <span style="color: royalblue; font-weight: bold">Browse</span> for a file to upload.
       </div>
       <div v-else style="color: #5ebd53; font-weight: bold">

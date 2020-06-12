@@ -5,8 +5,8 @@
         <b-col lg="8" v-for="(file, key) in files" :key="key++">
           <div class="card-item">
             <div class="ml-5">
-              <l-typography h4 bold class="mb-1">{{ file.filemail }}</l-typography>
-              <l-typography class="text-muted" h5>{{ file.filename }}  10 Phrases</l-typography>
+              <l-typography h4 bold class="mb-1">{{ file.fileMail }}</l-typography>
+              <l-typography class="text-muted" h5>{{ file.fileName }}  10 Phrases</l-typography>
             </div>
             <l-button rounded class="mr-5" @click="navToTranslate(file.id)">GO</l-button>
           </div>

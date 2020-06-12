@@ -11,13 +11,8 @@ export default {
       }
     })
   },
-  register: (pseudo, email, password) => {
-    return axios.post(baseUrl + '/api/register/' ,{
-      pseudo: pseudo,
-      email: email,
-      password: password,
-      password_confirmation: password,
-    },{
+  register: form => {
+    return axios.post(baseUrl + '/api/register/' , form,{
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
