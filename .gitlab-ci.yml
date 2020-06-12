@@ -1,0 +1,42 @@
+stages:
+  - build
+ # - test
+  - deploy
+# - notify
+
+build:artifact:
+  image: node:latest
+  stage: build
+  script:
+    - npm install
+    - npm run generate
+  cache:
+    paths:
+      - node_modules/
+    policy: push
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 month
+  when: on_success
+
+deploy:
+  image: debian:latest
+  environment: # Déclaration étendue de l'environnement
+    name: production
+    url: '$TODOWORLD_URL' # Url de l'application
+  stage: deploy
+  before_script:
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+    - ssh-add <(echo "$PRIVATE_KEY")
+    - scp -P $PORT_SSH_PROD_SERVER -r ./dist $USER_PROD_SERVER@$PROD_SERVER_IP:$PATH_PROD_SERVER
+  dependencies:
+    - build:artifact
+  only:
+    - master
+  when: on_success
+

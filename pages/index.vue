@@ -120,9 +120,6 @@ export default {
     },
     upload() {
       let type = (/[.]/.exec(this.file.name)) ? /[^.]+$/.exec(this.file.name)[0] : undefined
-      if(type === 'txt') {
-        let file = fileConverter.convertTxtToJson(this.file)
-      }
       let formData = new FormData();
       formData.append('fileMail', this.email)
       formData.append('fileName', this.file.name)
