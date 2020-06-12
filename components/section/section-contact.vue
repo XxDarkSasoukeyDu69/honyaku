@@ -13,7 +13,7 @@
                 <l-input v-model="form.email" placeholder="Email" type="email" required/>
                 <l-input v-model="form.message" placeholder="Message" textarea required/>
                 <div class="d-flex justify-content-between align-items-center">
-                  <l-button :loading="isLoading" rounded value="Envoyer !" class="mt-5"/>
+                  <l-button :loading="loading" rounded value="Envoyer !" class="mt-5"/>
                 </div>
               </form>
             </div>
@@ -39,7 +39,7 @@
               email: '',
               message: ''
             },
-            isLoading: false
+            loading: false
           }
       },
       methods: {
@@ -47,7 +47,7 @@
           e.preventDefault()
           this.loading = true
           mail.sendEmailContact(this.form).then(r => {
-           // this.isLoading = false
+            Object.keys(this.form).map(key => { this.form[key] = ""})
           }).catch(e => {
             this.loading = false
           })
