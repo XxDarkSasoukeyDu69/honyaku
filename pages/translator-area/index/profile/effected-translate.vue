@@ -6,7 +6,7 @@
         <div class="card-item">
           <div class="ml-5">
             <l-typography h4 bold class="mb-1">{{ file.fileMail }}</l-typography>
-            <l-typography class="text-muted" h5>{{ file.fileName }}  10 Phrases</l-typography>
+            <l-typography class="text-muted" h5>{{ file.fileName }}</l-typography>
           </div>
         </div>
       </b-col>
@@ -44,5 +44,15 @@
 </script>
 
 <style scoped>
-
+  .card-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 114px;
+    left: 681px;
+    top: 1162px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(216, 191, 191, 0.25);
+    border-radius: 92px;
+  }
 </style>

@@ -104,7 +104,7 @@ export default {
       source: 'en',
       target: 'fr',
       countries_code: [],
-      id_oder: '',
+      id_order: '',
       isConfirmUploadModal: false
     }
   },

@@ -1,12 +1,12 @@
 <template>
     <div class="container h-100">
-      <l-typography h2 bolder class="mb-5 mt-5">Retrouver ici, l'enssemble des text à traduire</l-typography>
+      <l-typography h2 bolder class="mb-5 mt-5">Retrouver ici, l'enssemble des texts à traduire</l-typography>
       <b-row v-if="files === null || files.length > 0" class="h-100">
         <b-col lg="8" v-for="(file, key) in files" :key="key++">
           <div class="card-item">
             <div class="ml-5">
               <l-typography h4 bold class="mb-1">{{ file.fileMail }}</l-typography>
-              <l-typography class="text-muted" h5>{{ file.fileName }}  10 Phrases</l-typography>
+              <l-typography class="text-muted" h5>{{ file.fileName }}</l-typography>
             </div>
             <l-button rounded class="mr-5" @click="navToTranslate(file.id)">GO</l-button>
           </div>
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+
     import file_request from "../../../../services/requests/file_request";
     import LTypography from "../../../../components/base/typography";
     import LButton from "../../../../components/base/button";

@@ -49,7 +49,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1040;
+    top: 0;
+    left: 0;
     .modal-p {
       margin: 15px;
       border-radius: 10px;

@@ -20,6 +20,22 @@ export default {
      }
     })
   },
+  getOrder: file_id => {
+    return axios.get( baseUrl + '/api/getOrder/' + file_id, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+  },
+  deleteOrder: file_id => {
+    return axios.delete( baseUrl + '/api/deleteOrder/' + file_id, {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }
+    })
+  },
   postFile: form_data => {
     return axios.post( baseUrl + '/api/file', form_data, {
       Accept: 'application/json',

@@ -1,9 +1,16 @@
 <template>
   <button v-if="type" class="button d-flex justify-content-center align-items-center pl-3 pr-3" :class="getClass" :type="type">
-    <b-spinner v-if="loading" variant="light" small class="mr-2"/><slot name="prepend-icon" />{{ value }}<slot/>
+      <b-spinner v-if="loading" variant="light" small class="mr-2"/>
+      <div class="icon">
+        <slot name="prepend-icon" />
+      </div>
+      <span class="value">{{ value }} <slot/></span>
   </button>
   <button v-else class="button d-flex justify-content-center align-items-center pl-3 pr-3" :class="getClass" @click="$emit('click', $event)">
-    <slot name="prepend-icon" />{{ value }}<slot/>
+    <div class="icon">
+      <slot name="prepend-icon" />
+    </div>
+    <span class="value">{{ value }}<slot/></span>
   </button>
 </template>
 
@@ -15,13 +22,15 @@
           semiRounded: Boolean,
           value: String,
           loading: Boolean,
-          type: String
+          type: String,
+          hoverExpand: Boolean
       },
       computed: {
         getClass() {
           return [{
             'rounded-p': this.rounded,
             semiRounded: this.semiRounded,
+            hoverExpand: this.hoverExpand
           }]
         }
       }
@@ -67,4 +76,16 @@
     line-height: 35px;
     color: white;
   }
+
+  .hoverExpand {
+    transition: all ease-in-out 0.5s;
+    .icon { display: block }
+    .value { display: none; animation: ease-in-out 0.5s }
+  }
+
+  .hoverExpand:hover {
+    .value { display: block }
+    .icon { display: none }
+  }
+
 </style>

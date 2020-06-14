@@ -31,7 +31,7 @@
           <div class="text-center">
             <font-awesome-icon icon="user" style="font-size: 70px"/>
             <l-typography  h3 bold value="Profile" class="text-center pt-3"/>
-            <l-button style="margin: auto" class="mt-3" @click="$router.push('/translator-area/profile/information')" rounded>Voir</l-button>
+            <l-button style="margin: auto" class="mt-3" @click="$router.push('/translator-area/card/information')" rounded>Voir</l-button>
           </div>
         </l-card>
       </b-col>
@@ -61,7 +61,7 @@
     import LCardBody from "~/components/base/card-body";
     import LButton from "../../../../components/base/button";
     import file_request from "../../../../services/requests/file_request";
-    import LCardProfile from "../../../../components/profile/card-profile";
+    import LCardProfile from "../../../../components/card/card-profile";
     export default {
       name: "index",
       components: {LCardProfile, LButton, LCardBody, LCardHeader, CardFlip, LTypography, LCard},
