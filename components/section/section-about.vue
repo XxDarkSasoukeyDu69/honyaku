@@ -11,7 +11,7 @@
           rounded="circle"
           src="https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/90253805_1586916894791505_4131064914418597888_o.jpg?_nc_cat=103&_nc_sid=85a577&_nc_oc=AQnHAB8kU_c4vxKxKOARyks_8JMPlii4qKKAjZg8_W0YPLxZhcHofTJmvIxc7C78lrDrbFWoB4bYJMBFn-EfXUFC&_nc_ht=scontent-cdt1-1.xx&oh=89be230c30dcb4501a0982662431f1da&oe=5F0228FA"/>
         <l-typography h4 bold>Alexandre Cailler</l-typography>
-        <l-typography h5 semi-light>Développeur Laravel/Node  <br> Vue(Nuxt ou CLI)/React/React-native, Docker, PostgreSQL</l-typography>
+        <l-typography h5 semi-light>Développeur Laravel/Node, Nginx <br> Vue(Nuxt ou CLI)/React/React-native, Docker, PostgreSQL</l-typography>
         <div class="d-flex justify-content-center mt-3 ">
           <a href="https://www.facebook.com/alexandre.cailler.16">
             <l-fab back-color="#4267b2" size="40">
