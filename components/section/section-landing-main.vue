@@ -1,5 +1,4 @@
 <template>
-
   <section class="vh-100" style="background: linear-gradient(149deg, rgb(245, 196, 185) 0px, rgb(173, 172, 236) 50%, rgb(96, 142, 199) 100%) !important;">
     <div class="container h-100 d-flex align-items-center justify-content-center">
       <div class="text-center">
