@@ -1,8 +1,8 @@
 <template>
     <div class="container h-100">
-      <l-typography h2 bolder class="mb-5 mt-5">Retrouver ici, l'enssemble des texts à traduire</l-typography>
-      <b-row v-if="files === null || files.length > 0" class="h-100">
-        <b-col lg="8" v-for="(file, key) in files" :key="key++">
+      <l-typography h2 bolder class="mb-5 mt-5">Retrouver ici, l'enssemble des textes à traduire</l-typography>
+      <b-row v-if="files === null || files.length > 0">
+        <b-col :cols="12" lg="8" v-for="(file, key) in files" :key="key++" class="mb-5">
           <div class="card-item">
             <div class="ml-5">
               <l-typography h4 bold class="mb-1">{{ file.fileMail }}</l-typography>

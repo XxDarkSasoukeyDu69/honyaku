@@ -3,11 +3,11 @@
     <l-modal v-model="isConfirmUploadModal" overlay-dark>
       <div class="d-flex justify-content-between">
         <l-typography h3 bold>Transfert réussi ! </l-typography>
-        <font-awesome-icon  icon="times" style="font-size: 20px;" @click="modal = false">close</font-awesome-icon>
+       <font-awesome-icon @click="isConfirmUploadModal = false" icon="times" style="font-size: 20px; cursor: pointer">close</font-awesome-icon>
       </div>
       <l-typography>Un mail vous a été envoyer</l-typography>
       <l-typography>Avec l'identifiant suivant : {{ id_order }}</l-typography>
-      <l-typography>Cet identifiant vous permet de suivre l'état de votre commande, sur le lien suivant: <nuxt-link to="/follow-commande">Lien</nuxt-link></l-typography>
+      <l-typography>Cet identifiant vous permet de suivre l'état de votre commande, sur le lien suivant: <nuxt-link to="/follow-order">Lien</nuxt-link></l-typography>
     </l-modal>
     <l-modal v-model="modalPurchase" overlay-dark>
       <l-typography class="text-center" h3 bold>Quel format vous choisissez ?</l-typography>
@@ -19,7 +19,7 @@
         </b-col>
         <b-col class="justify-content-center">
           <img class="p-lg-5 p-md-5 p-sm-5 p-2" style="height: auto; width: 100%" :src="require('@/assets/images/money.png')"/>
-          <l-typography h5 bold class="text-center mb-2">Billing . 1,99</l-typography>
+          <l-typography h5 bold class="text-center mb-2">Billing . 1,99 / 5 000 caractères</l-typography>
           <l-button rounded value="I choose" style="margin: auto" @click="navToBilling()"/>
         </b-col>
       </b-row>
@@ -88,6 +88,7 @@ import LSectionFeatures from "../components/section/section-features";
 import LSectionLandingMain from "../components/section/section-landing-main";
 import LModalPath from "../components/base/modal-path";
 import fileConverter from "../services/fileConverter";
+import billing from "../services/requests/billing";
 
 export default {
   components: {
@@ -111,14 +112,13 @@ export default {
   methods: {
     navToBilling() {
       var reader = new FileReader();
-      reader.onload = (e) => {
-        let blob = e.target.result
-        localStorage.setItem('billingFile', JSON.stringify({email: this.email, source: this.source, target: this.target, blobFile: blob, filename: this.file.name}))
-      }
-      reader.readAsDataURL(this.file);
-      window.location.href = '/billing'
+      billing.insertBilling(this.createFormData()).then(r => {
+        window.location.href = '/billing?file_id=' + r.data.data.id
+      }).catch(e => {
+        alert('Une erreur c\'est produite avec votre fichier')
+      })
     },
-    upload() {
+    createFormData() {
       let type = (/[.]/.exec(this.file.name)) ? /[^.]+$/.exec(this.file.name)[0] : undefined
       let formData = new FormData();
       formData.append('fileMail', this.email)
@@ -127,10 +127,14 @@ export default {
       formData.append('targetLang', this.target)
       formData.append('sourceLang', this.source)
       formData.append('fileType', type)
-      file_request.postFile(formData).then(r => {
+      return formData
+    },
+    upload() {
+      file_request.postFile(this.createFormData()).then(r => {
         this.modalPurchase = false
         this.modal = false
         let self = this
+        this.id_order = r.data.result.id
         setTimeout(function () {
           self.isConfirmUploadModal = true
         }, 2000)
@@ -195,5 +199,8 @@ export default {
     overflow: hidden;
     padding-top: 4rem;
     padding-bottom: 4rem;
+  }
+  .btn-transparent {
+    background: none; border: none;
   }
 </style>

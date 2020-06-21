@@ -2,7 +2,7 @@
   <div class="container h-100">
     <l-typography class="pt-5" h2 bold>Vos traductions éffectués</l-typography>
     <b-row v-if="files">
-      <b-col lg="8" v-for="(file, key) in files" :key="key++">
+      <b-col lg="8" v-for="(file, key) in files" :key="key++" class="mb-5">
         <div class="card-item">
           <div class="ml-5">
             <l-typography h4 bold class="mb-1">{{ file.fileMail }}</l-typography>

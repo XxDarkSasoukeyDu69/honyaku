@@ -16,7 +16,7 @@ const traduceService = {
   reconstruct(array) {
     const object = {}
     array.forEach(tradObject => {
-      const lastKey = tradObject.key.pop()
+      const lastKey = tradObject.key[tradObject.key.length-1]
       const lastObject = tradObject.key.reduce((prev, curr) => {
         if (!prev[curr]) {
           prev[curr] = {}

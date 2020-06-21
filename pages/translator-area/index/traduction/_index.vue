@@ -2,11 +2,11 @@
   <div class="h-100">
     <l-modal v-model="finish_modal" overlay-dark>
       <div style="height: 500px;">
-        <l-tabs-end-translate v-model="index_tabs" />
+        <l-tabs-end-translate v-model="index_tabs" @message="message = $event"/>
       </div>
-      <div class="d-flex">
+      <div class="d-flex position-relative" style="z-index: 40">
         <l-button rounded :value="index_tabs === 0 ? 'Annulé' : 'Précédent'" @click="index_tabs === 0  ? finish_modal = false : index_tabs--"/>
-        <l-button class="ml-3" rounded :value="index_tabs === 2 ? 'Suivant' : 'Confirmer'" @click="index_tabs === 2 ? setFinished : index_tabs++"/>
+        <l-button class="ml-3" :loading="isLoading" rounded :value="index_tabs === 2 ? 'Envoyer' : 'Confirmer'" @click="index_tabs === 2 ? setFinished() : index_tabs++"/>
       </div>
     </l-modal>
     <div class="container h-100 flex-column d-flex">
@@ -27,11 +27,10 @@
           <b-row class="ml-2 mr-2">
             <l-button rounded class="mt-3 col-sm-4" @click="previous_step">Précédent</l-button>
             <l-button rounded style="background: #1aae6f; box-shadow: none" class="mt-3 col-sm-4" type="submit">Valider !</l-button>
-            <l-button rounded style="background: #3a46ae; box-shadow: none" class="mt-3 col-sm-4" @click="save_translation()">Sauvegarder !</l-button>
+            <l-button rounded style="background: #3a46ae; box-shadow: none" class="mt-3 col-sm-4" @click="save_translation">Sauvegarder !</l-button>
           </b-row>
         </b-form>
       </div>
-
     </div>
   </div>
 </template>
@@ -53,6 +52,7 @@
       components: {LTabsEndTranslate, LTabs, LModal, LTypography, LInput, LButton},
       data() {
         return {
+          message: '',
           index_tabs: 0,
           test: true,
           index: 0,
@@ -60,7 +60,8 @@
           toTranslate: null,
           tradSet: '',
           routeIndex: this.$route.params.index,
-          finish_modal: false
+          finish_modal: false,
+          isLoading: false
         }
       },
       methods: {
@@ -79,14 +80,23 @@
             this.tradSet = this.toTranslate[this.index].trad
           }
         },
-        save_translation() {
+        save_translation(e) {
+          e.preventDefault();
+          this.save()
+        },
+        save() {
           let translate = traduceService.reconstruct(this.toTranslate)
+
           let formData = new FormData();
           formData.append('file', JSON.stringify(translate))
           file_request.updateTranslation(this.routeIndex, formData).then(r => {})
         },
         setFinished() {
-
+          this.save()
+          this.isLoading = true
+          file_request.setFinish(this.routeIndex, this.message).then(r => {
+            window.location.href = "/translator-area/list-trad"
+          })
         }
       },
       mounted() {
@@ -96,7 +106,9 @@
         })
       },
       beforeDestroy() {
-       this.save_translation()
+        if(!this.finish_modal) {
+          this.save()
+        }
       }
     }
 </script>

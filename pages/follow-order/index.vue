@@ -4,7 +4,7 @@
         <l-typography bold h3 value="Etes vous sur de supprimer votre commande ?"/>
         <div class="d-flex justify-content-center mt-4">
             <l-button class="mr-3" rounded value="Non" @click="confirm_modal = false" />
-            <l-button rounded @click="deleteOrder(result.id)" value="Oui"/>
+            <l-button rounded @click="deleteOrder(result.id, $event)" value="Oui"/>
         </div>
       </l-modal>
       <l-section-header title="Suivie de commande" />
@@ -26,7 +26,7 @@
           <b-row slot="content" class="mt-5">
             <b-col lg="8" class="mb-5">
               <l-card-trad-item :item="result" status>
-                <l-button slot="btn" hover-expand rounded class="mr-5" @click="confirm_modal = true">
+                <l-button slot="btn" hover-expand rounded class="mr-5" @click="openModal">
                   <font-awesome-icon slot="prepend-icon" icon="times"/>Suprimmer</l-button>
               </l-card-trad-item>
             </b-col>
@@ -64,6 +64,12 @@
             this.confirm_modal = false
             this.result = null
           }).catch(e => alert('Une erreur est survenue'))
+        },
+        openModal() {
+          var self = this
+          setTimeout(function () {
+            self.confirm_modal = true
+          })
         },
         submitForm(e) {
           e.preventDefault()

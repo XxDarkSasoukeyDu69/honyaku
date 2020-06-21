@@ -4,40 +4,43 @@
     <div class="container d-flex align-items-center front-to-overlay " style="height: 50vh">
       <div>
         <div class="mb-5">
-          <l-typography h3>
-            Paiements de 1.99 euros pour une traduction automatique.
+          <l-typography h3 v-if="this.billingSecret">
+            Paiements de {{ getAmount }} euros pour une traduction automatique.
           </l-typography>
           <nuxt-link to="/billing-info">Politique de vente</nuxt-link>
         </div>
-        <b-row>
-          <b-col lg="6" md="6" sm="6" class="align-items-center d-flex justify-content-between mb-4">
-            <div class="d-flex align-items-center billingInfo-rounded ">
-              <div class="d-flex">
-                <flag :iso="billingFile.source" class="mr-2"/>
-                <l-typography bold>{{billingFile.source}}</l-typography>
+        <b-form @submit="purchase">
+          <b-row>
+            <b-col lg="6" md="6" sm="6" class="align-items-center d-flex justify-content-between mb-4">
+              <div class="d-flex align-items-center billingInfo-rounded ">
+                <div class="d-flex">
+                  <flag :iso="billingFile.source" class="mr-2"/>
+                  <l-typography bold>{{billingFile.source}}</l-typography>
+                </div>
+                <font-awesome-icon icon="arrow-right" class="ml-5 mr-5"/>
+                <div class="d-flex">
+                  <flag :iso="billingFile.target" class="mr-2"/>
+                  <l-typography bold>{{billingFile.target}}</l-typography>
+                </div>
               </div>
-              <font-awesome-icon icon="arrow-right" class="ml-5 mr-5"/>
-              <div class="d-flex">
-                <flag :iso="billingFile.target" class="mr-2"/>
-                <l-typography bold>{{billingFile.target}}</l-typography>
+              <div>
+                <l-typography bold color="#404040"> {{ billingFile.filename }}</l-typography>
               </div>
-            </div>
-            <div>
-              <l-typography bold color="#404040"> {{ billingFile.filename }}</l-typography>
-            </div>
-          </b-col>
-          <b-col lg="6" md="6" sm="6" class="mb-4">
-            <l-input v-model="form.name" placeholder="Nom"/>
-          </b-col>
-          <b-col lg="6" md="6" sm="6" class="mb-4">
-            <l-input v-model="form.email" placeholder="Email"/>
-          </b-col>
-          <b-col lg="6" md="6" sm="6" class="mb-4">
-            <div ref="card"></div>
-            <div id="card-errors" ref="errors" role="alert"></div>
-          </b-col>
-        </b-row>
-        <l-button rounded @click="purchase">Purchase</l-button>
+            </b-col>
+            <b-col lg="6" md="6" sm="6" class="mb-4">
+              <l-input v-model="form.name" placeholder="Nom" required/>
+            </b-col>
+            <b-col lg="6" md="6" sm="6" class="mb-4">
+              <l-input v-model="form.email" placeholder="Email" required/>
+            </b-col>
+            <b-col lg="6" md="6" sm="6" class="mb-4">
+              <div ref="card"></div>
+            </b-col>
+          </b-row>
+          <l-button rounded type="submit">Purchase</l-button>
+        </b-form>
+        <div id="card-errors" ref="errors" role="alert" v-show="error" class="mt-4 alert-danger alert"></div>
+        <div id="card-success" ref="success" role="alert" v-show="success" class="mt-4 alert-success alert"></div>
       </div>
     </div>
     <l-footer/>
@@ -79,6 +82,8 @@
       components: {LSectionHeader, LFooter, LInput, LButton, LTypography},
       data() {
         return {
+          error: false,
+          success: false,
           billingSecret: null,
           billingFile: [],
           file: null,
@@ -88,18 +93,35 @@
           }
         }
       },
+      computed: {
+        getAmount() {
+          if(this.billingSecret) return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(this.billingSecret.amount / 100)
+        }
+      },
       mounted() {
-
         let billingFile = JSON.parse(localStorage.getItem('billingFile'))
         this.form.email = billingFile.email
         this.billingFile = billingFile
         this.file = this.urltoFile(billingFile.blobFile, billingFile.filename)
 
-        billing.payement().then(r => {
+        billing.payment(this.$route.query.file_id).then(r => {
           this.billingSecret = r.data
+        }).catch(e => {
+          alert('Une erreur c\'est produite avec votre fichier, vous allez être rediriger vers la page d\'accueil, désolé pour ce désagrémment')
+          //window.location.href = '/'
         })
         card = elements.create('card', {style: style});
         card.mount(this.$refs.card);
+
+        card.addEventListener('change', ({error}) => {
+          if (error) {
+            this.error = true
+            document.querySelector('#card-errors').textContent = error.message
+          } else {
+            this.error = false
+            document.querySelector('#card-errors').textContent = ""
+          }
+        })
       },
       methods: {
         async stripeTokenHandler(token) {
@@ -118,9 +140,9 @@
             return (fetch(url).then(r => {return []}))
           }
         },
-        purchase() {
+        purchase(e) {
+          e.preventDefault()
           let self = this;
-          console.log(this.billingSecret.client_secret)
           const result =  stripe.confirmCardPayment(this.billingSecret.client_secret, {
             payment_method: {
               card: card,
@@ -128,7 +150,27 @@
                 name: this.form.name,
               }
             }
-          }).then(r => console.log(r)).catch(e => console.log(e))
+          }).then(r => {
+            if(r.error) {
+              this.error = true
+              this.success = false
+
+              document.querySelector('#card-errors').textContent = r.error.message
+              return;
+            }
+            if(r.paymentIntent.status === 'succeeded') {
+              this.success = true
+              this.error = false
+
+              billing.successPayment(this.billingSecret.file_id).then(r => {console.log(r)})
+
+              document.querySelector('#card-success').textContent = "Paiement accepté. Vous recevrez votre commande dans quelques minutes par mail."
+            }
+          }).catch(e => {
+            this.error = true
+            this.success = false
+            document.querySelector('#card-errors').textContent = e.message
+          })
         }
       }
     }

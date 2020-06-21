@@ -89,6 +89,17 @@ export default {
       }
     })
   },
+  setFinish: (file_id, message) => {
+    return axios.post(baseUrl + '/api/file/setFinish/' + file_id, {
+      messageContent: message
+    } , {
+      headers: {
+        Accept: 'application/json',
+        'content-type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      }
+    })
+  },
   convertFile: file => {
 
   }

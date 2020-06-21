@@ -31,7 +31,7 @@
           <div class="text-center">
             <font-awesome-icon icon="user" style="font-size: 70px"/>
             <l-typography  h3 bold value="Profile" class="text-center pt-3"/>
-            <l-button style="margin: auto" class="mt-3" @click="$router.push('/translator-area/card/information')" rounded>Voir</l-button>
+            <l-button style="margin: auto" class="mt-3" @click="$router.push('/translator-area/profile/information')" rounded>Voir</l-button>
           </div>
         </l-card>
       </b-col>
@@ -77,7 +77,7 @@
           file_request.getMyRunningTranslation().then(r => {
             this.runningCount = r.data.files.length
           })
-          file_request.getMyEffectedTranslation(r => {
+          file_request.getMyEffectedTranslation().then(r => {
             this.effectedCount = r.data.files.length
           })
         },
